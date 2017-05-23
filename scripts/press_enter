@@ -1,0 +1,14 @@
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+
+echo
+echo "Press Enter to continue"
+read enterKey  
+

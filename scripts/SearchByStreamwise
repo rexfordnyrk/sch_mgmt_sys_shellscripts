@@ -1,0 +1,261 @@
+#! /bin/bash
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+reset;
+Semfile()
+{ 
+while : [ $Semester != "0" ]
+ do
+	
+	echo "		Please Enter The Semester Of Records To Search (1,2,3,4)"
+	echo
+	read Semester
+
+	if [ $Semester != "0" ]
+  then
+      case $Semester in
+      1) echo "	The Semester Has Been Set"; break;;
+      2) echo "	The Semester Has Been Set"; break;;
+      3) echo "	The Semester Has Been Set"; break;;
+      4) echo "	The Semester Has Been Set"; break;;
+      *) echo "		Invalid Semester"; echo "		Please Enter A Valid Semester";;
+    esac
+  fi
+	
+done
+
+}
+Semfile
+
+Stream_ID()
+{
+while : [ $StreamID != "0" ]
+ do
+	
+	echo "		Please Enter The StreamID To Search For Records In Semester $Semester "
+	echo	"				( CS / IT /ET / EE / EI / ME / CE)"
+	read StreamID
+
+
+	if [ $StreamID == "CS" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CS" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CS" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CS" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CS" FourthSem
+			break;
+		fi
+	fi
+
+	
+	if [ $StreamID == "IT" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "IT" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "IT" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "IT" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "IT" FourthSem
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "ET" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ET" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ET" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ET" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ET" FourthSem
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "EE" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EE" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EE" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EE" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EE" FourthSem
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "EI" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EI" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EI" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EI" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "EI" FourthSem
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "ME" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ME" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ME" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ME" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "ME" FourthSem
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "CE" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CE" FirstSem
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CE" SecondSem
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CE" ThirdSem
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/semister-wise-records
+			grep "CE" FourthSem
+			break;
+		fi
+	fi
+	
+done
+
+}
+Stream_ID

@@ -1,0 +1,181 @@
+#! /bin/bash
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+mistake()
+	{
+ 		while :
+		do
+		clear
+		echo  "		Pls Confirm If These Are The Correct Details"
+		echo
+		echo $FirstName - $LastName - $StreamID - $Address - $Phone - $City - $State - $Zipcode
+		echo
+		echo
+		  echo 
+		  echo "		Please Enter An Option To Modify" 
+		  echo
+		  echo "  		1 - 	FirstName"
+		  echo "  		2 - 	LastName"
+		  echo "  		3 - 	StreamID"
+		  echo "  		4 - 	Address "
+		  echo "  		5 - 	Phone"
+		  echo "  		6 - 	City"
+		  echo "		7 -	State"
+		  echo "  		8 - 	Zipcode"
+		  echo "  		x - 	Exit"
+		  echo 
+		  echo -n "		Enter option: "
+		  read Ans
+		    
+		  if [ "$?" != "1" ]
+		   then
+		     case $Ans in
+		      1) read FirstName;;
+		      2) read LastName;;
+		      3) read StreamID;;
+		      4) read Address;;
+		      5) read Phone;;
+		      6) read City;;
+		      7) read State;;
+		      8) read Zipcode;;
+		      x) break ;;
+		      *) echo "		Invalid option"; echo "		Please Enter A Valid Option";;
+		    esac
+		  fi
+		
+		done
+	}
+reset;
+
+echo "	================================================================="
+echo " 	 Student Management Software- by rexfordnyrk (@rexfordnyrk)"
+echo "	================================================================="
+echo 
+echo "   	>>>>>>>>>>>>>>>>>>>>> New Student Entry <<<<<<<<<<<<<<<<<<<<<<<"
+
+echo "	     Please enter the datails of the Student in the order below; "
+echo
+echo
+echo "FirstName - LastName - StreamID - Address - Phone - City - State - Zipcode "
+echo
+echo
+StudentID=`date +%N`
+Dateofenrollment=`date +%D`
+
+read FirstName; read LastName; read StreamID; read Address; read Phone; read City; read State; read Zipcode;
+
+
+
+while : [ $CorrectMistake != "n" ]
+ do
+	
+	echo  "		Pls Confirm If These Are The Correct Details"
+	echo
+	echo $FirstName - $LastName - $StreamID - $Address - $Phone - $City - $State - $Zipcode
+	echo
+	echo  " 		Modify Details, (y/n)? "
+	read CorrectMistake
+	
+	if [ $CorrectMistake == "n" ]
+ 	then	
+		reset
+		echo "		Details Accepted"
+  		break
+ 	fi
+
+	if [ $CorrectMistake == "y" ]
+    	then		
+		mistake
+		break
+		
+	fi
+
+	if [ $CorrectMistake != "n" ] && [ $CorrectMistake != "y" ]
+	then	
+		clear
+		echo "			Invalid option"
+		echo "		Please Enter A Valid Option"
+	fi
+	
+
+done	
+    	
+
+fileheader()
+{
+echo "==========================================================================================================================="
+echo "STUDENT_ID --- FIRSTNAME --- LASTNAME --- DATE-OF-ENROLLMENT --- STREAMID --- ADDRESS --- PHONE --- CITY ---STATE--- ZIPCODE"
+echo "==========================================================================================================================="
+
+}
+Studentinfo()
+{
+echo "$StudentID - $FirstName - $LastName - $Dateofenrollment - $StreamID - $Address - $Phone - $City - $State - $Zipcode"
+}
+
+Studentinfo >> Studentfiles/All_Students_Info
+fileheader > Studentfiles/Student_Info.$StudentID
+Studentinfo >> Studentfiles/Student_Info.$StudentID
+
+
+echo "		Student was registered under StudentID: $StudentID"
+
+
+
+
+
+SemisterWise()
+{
+firstsem()	
+{
+	echo "	Student has been registered as part of the First Semester students."
+	Studentinfo >> semister-wise-records/FirstSem
+}
+
+secondsem()
+{
+   	echo "	Student has been registered as part of the Second Semester students."
+	Studentinfo >> semister-wise-records/SecondSem
+}
+
+thirdsem()
+{
+   	echo "	Student has been registered as part of the Third Semester students."
+	Studentinfo >> semister-wise-records/ThirdSem
+}
+
+fourthsem()
+{
+   	echo "	Student has been registered as part of the Fourth semester students."
+	Studentinfo >> semister-wise-records/FourthSem
+}
+
+while :
+		do
+		clear
+		echo "Which Semester File Should the Student be Registered in?"
+		echo "			 ( 1 / 2 / 3 / 4  ) "
+		echo " 			Pls Enter an option "
+		read semester
+    
+		  if [ "$?" != "1" ]
+		   then
+		     case $semester in
+		      1) read firstsem; break;;
+		      2) read secondsem; break;;
+		      3) read thirdsem; break;;
+		      4) read fourthsem; break;;
+		      *) echo "		Invalid option";;
+		    esac
+		  fi
+done
+}
+SemisterWise
+

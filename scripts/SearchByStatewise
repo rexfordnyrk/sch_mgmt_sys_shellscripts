@@ -1,0 +1,59 @@
+#! /bin/bash
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+reset;
+StudentStateSearch()
+{
+while :
+do
+	echo "		Please Enter The State Of the Students To Search"
+	echo  " 			Enter 0 to Exit"
+	echo
+	read State
+
+
+	FileDir=Studentfiles
+	error_found=0
+
+	if [ ! -e $FileDir ]
+	  then
+	    echo "		Error: The State '$State' does not exist the Database"
+	    echo "				Or Is Spelt Wrongly"
+	    error_found=1
+	fi
+
+
+	if [ $error_found == 1 ]
+	then
+	  echo
+	  echo "		Ensure You Have Entered The Correct State or try changing the Letter Cases"
+	  echo "					Capital Letters or Small Letters"
+	fi
+
+	if [ -e $FileDir ] && [ $State != "0" ]
+	  then 
+	    reset
+	    echo
+	    echo "		Here Are The Details Of Student  In the $State State	"
+	    echo
+	    echo
+	    cd $PWD/Studentfiles
+	    grep "$State" All_Students_Info
+	    break;
+	fi
+	if [ $State == "0" ]
+	then
+	  break;
+	fi
+	
+	scripts/press_enter
+done
+}
+StudentStateSearch

@@ -1,0 +1,378 @@
+#! /bin/bash
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+reset;
+Semfile()
+{ 
+while : [ $Semester != "0" ]
+ do
+	
+	echo "		Please Enter The Semester From which The Report Should be Generated (1,2,3,4)"
+	echo
+	echo "			Press 5 to Generate Report Of All Students From All Semesters "
+	read Semester
+
+	if [ $Semester != "0" ]
+  then
+      case $Semester in
+      1) clear; echo "			The Semester Has Been Set"; break;;
+      2) clear; echo "			The Semester Has Been Set"; break;;
+      3) clear; echo "			The Semester Has Been Set"; break;;
+      4) clear; echo "			The Semester Has Been Set"; break;;
+      5) clear; echo "			All Semesters Report Selected"; break;;
+      *) clear; echo "		Invalid Semester"; echo "		Please Enter A Valid Semester";;
+    esac
+  fi
+	
+done
+
+}
+
+SemFolder=semister-wise-records
+All=Studentfiles
+Stream_ID()
+{
+while : [ $Semister != "0" ]
+ do
+	
+	echo "		Please Enter The StreamID That The Report Should Generated From In Semester $Semester "
+	echo	"				( CS / IT /ET / EE / EI / ME / CE)"
+	read StreamID
+
+
+	if [ $StreamID == "CS" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CS" FirstSem
+			grep "CS" FirstSem > ../reports/StreamCS_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CS" SecondSem
+			grep "CS" SecondSem > ../reports/StreamCS_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CS" ThirdSem
+			grep "CS" ThirdSem > ../reports/StreamCS_Sem3-wise_report
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CS" FourthSem
+			grep "CS" FourthSem > ../reports/StreamCS_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset
+			cd $PWD/$All
+			grep "CS" All_Students_Info
+			grep "CS" All_Students_Info > ../reports/StreamCS_All_Semester_report
+			break;
+		fi
+	fi
+
+	
+	if [ $StreamID == "IT" ] 
+      	then
+	reset; 	
+		echo "		Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "IT" FirstSem
+			grep "IT" FirstSem > ../reports/StreamIT_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "IT" SecondSem
+			grep "IT" SecondSem > ../reports/StreamIT_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "IT" ThirdSem			
+			grep "IT" ThirdSem > ../reports/StreamIT_Sem3-wise_report
+			cd ..
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "IT" FourthSem
+			grep "IT" FourthSem > ../reports/StreamIT_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset			
+			cd $PWD/$All
+			grep "IT" All_Students_Info
+			grep "IT" All_Students_Info > ../reports/StreamIT_All_Semester_report
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "ET" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ET" FirstSem
+			grep "ET" FirstSem > ../reports/StreamET_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ET" SecondSem
+			grep "ET" SecondSem > ../reports/StreamET_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ET" ThirdSem
+			grep "ET" ThirdSem > ../reports/StreamET_Sem3-wise_report
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ET" FourthSem
+			grep "ET" FourthSem > ../reports/StreamET_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset			
+			cd $PWD/$All
+			grep "ET" All_Students_Info
+			grep "ET" All_Students_Info > ../reports/StreamET_All_Semester_report
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "EE" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EE" FirstSem
+			grep "EE" FirstSem > ../reports/StreamEE_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EE" SecondSem
+			grep "EE" SecondSem > ../reports/StreamEE_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EE" ThirdSem
+			grep "EE" ThirdSem > ../reports/StreamEE_Sem3-wise_report
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EE" FourthSem
+			grep "EE" FourthSem > ../reports/StreamEE_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset			
+			cd $PWD/$All
+			grep "EE" All_Students_Info
+			grep "EE" All_Students_Info > ../reports/StreamEE_All_Semester_report
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "EI" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EI" FirstSem
+			grep "EI" FirstSem > ../reports/StreamEI_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EI" SecondSem
+			grep "EI" SecondSem > ../reports/StreamEI_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EI" ThirdSem
+			grep "EI" ThirdSem > ../reports/StreamEI_Sem3-wise_report
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "EI" FourthSem
+			grep "EI" FourthSem > ../reports/StreamEI_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset			
+			cd $PWD/$All
+			grep "EI" All_Students_Info
+			grep "EI" All_Students_Info > ../reports/StreamEI_All_Semester_report
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "ME" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ME" FirstSem
+			grep "ME" FirstSem > ../reports/StreamME_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ME" SecondSem
+			grep "ME" SecondSem > ../reports/StreamME_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ME" ThirdSem
+			grep "ME" ThirdSem > ../reports/StreamME_Sem3-wise_report
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "ME" FourthSem
+			grep "ME" FourthSem > ../reports/StreamME_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset			
+			cd $PWD/$All
+			grep "ME" All_Students_Info
+			grep "ME" All_Students_Info > ../reports/StreamME_All_Semester_report
+			break;
+		fi
+	fi
+
+	if [ $StreamID == "CE" ] 
+      	then
+	reset; 	
+		echo "	Results Based On StreamID $StreamID"; 
+		if [ $Semester == "1" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CE" FirstSem
+			grep "CE" FirstSem > ../reports/StreamCE_Sem1-wise_report
+			break;
+		fi
+		if [ $Semester == "2" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CE" SecondSem
+			grep "CE" SecondSem > ../reports/StreamCE_Sem2-wise_report
+			break;
+		fi
+		if [ $Semester == "3" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CE" ThirdSem
+			grep "CE" ThirdSem > ../reports/StreamCE_Sem3-wise_report
+			break;
+		fi
+		if [ $Semester == "4" ]
+			then 
+			cd $PWD/$SemFolder
+			grep "CE" FourthSem
+			grep "CE" FourthSem > ../reports/StreamCE_Sem4-wise_report
+			break;
+		fi
+		if [ $Semester == "5" ]
+			then 
+			reset			
+			cd $PWD/$All
+			grep "CE" All_Students_Info
+			grep "CE" All_Students_Info > ../reports/StreamCE_All_Semester_report
+			break;
+		fi
+	fi
+	
+done
+
+}
+
+
+ReportMenu()
+{ 
+while :
+do
+	
+	echo "		Please How Should The Report Be Generated"
+	echo 
+	echo "		1) Stream-wise and Semister-wise Report"
+	echo "		2) Stream-wise Report Of All The Students From All Semesters"
+	echo
+	echo "		3) Return To Main Menu"
+	echo	
+	read ReportType
+
+	if [ $ReportType != "0" ]
+  then
+      case $ReportType in
+      1) clear; Semfile; clear; Stream_ID; break;;
+      2) reset; Semfile; clear; ;;
+      3) exit 0;;
+      *) clear; echo "		Please Enter A Valid Option";;
+    esac
+  fi
+	
+done
+
+}
+ReportMenu

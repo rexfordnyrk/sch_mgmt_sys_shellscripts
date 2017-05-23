@@ -1,0 +1,96 @@
+#!/bin/bash
+
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+
+version=0.1
+
+
+if [! -e mainmenu]
+then
+  echo
+  echo "Ensure you run this file from the SAME folder as where it was"
+  echo "installed, otherwise the Programe will have problems running the"
+  echo "scripts.  After you 'cd' to the correct folder, start the Programe"
+  echo "with the ./mainmenu command, NOT with any other command or method!"
+  exit 0
+fi
+
+dir_list=( semister-wise-records scripts reports Studentfiles Deleted_Old_Students)
+error_found=0
+
+for check_dir in ${dir_list[@]}
+do
+  if [ ! -e $check_dir ]
+  then
+    echo "Error: Folder '$check_dir' not found"
+    error_found=1
+  fi
+done
+
+if [ $error_found == 1 ]
+then
+  echo
+  echo "Ensure you have installed the folders for the application correctly."
+  exit 0
+fi
+
+
+
+chmod 755 scripts/*
+chmod 755 semister-wise-records/*
+chmod 755 reports/*
+chmod 755 streamwise-report/*
+mainmenu()
+{ 
+while :
+do
+
+  clear
+
+  echo 
+  echo "================================================================="
+  echo " Student Management Software- by rexfordnyrk (@rexfordnyrk)"
+  echo "================================================================="
+  echo 
+  echo ">>>>>>>>>>>>>>>>>>>>>>>>> MAIN MENU <<<<<<<<<<<<<<<<<<<<<<<<<<<<<"
+  echo
+  echo "  		1 - 	New Student Entry"
+  echo "  		2 - 	Modify Student Records"
+  echo "  		3 - 	Search Options "
+  echo "  		4 - 	Generate Report"
+  echo "  		5 - 	Delete Old Records"
+  echo 
+  echo "  		a - 	About"
+  echo "  		x - 	Exit"
+  echo
+  echo 
+  echo -n "Enter option: "
+  read opt
+
+  if [ "$?" != "1" ]
+  then
+      case $opt in
+      1) clear; scripts/New_Student;;
+      2) scripts/Modify_Records;;
+      3) clear;scripts/Search_Options;;
+      4) scripts/Generate_Report;;
+      5) scripts/Delete_Old_Record;;
+      a) scripts/about $version; continue;;
+      x) reset; echo "Exiting Programm........... "; echo ">>>>>>>>>>>>>>>>> GOODBYE <<<<<<<<<<<<<<<<<"; echo; exit 1;;
+      *) echo "		Invalid option"; echo "		Please Enter A Valid Option";;
+    esac
+  fi
+
+  scripts/press_enter
+
+done
+}
+mainmenu

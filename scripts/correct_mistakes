@@ -1,0 +1,56 @@
+#! /bin/bash
+############################################################################
+#
+# Copyright (c) 2014 - rexfordnyrk (rexfordnyrk@gmail.com)
+#
+# This script file is intended for Student Management Software Project
+# and/or educational use only.  It may not be duplicated for monetary
+# benefit or any other purpose without the permission of the developer.
+#
+############################################################################
+
+. script/New_Student
+
+
+mistake()
+{
+ while :
+do
+ 
+clear
+
+  echo 
+  echo "		Please Enter An Option To Modify" 
+  echo
+  echo "  		1 - 	FirstName"
+  echo "  		2 - 	LastName"
+  echo "  		3 - 	StreamID"
+  echo "  		4 - 	Address "
+  echo "  		5 - 	Phone"
+  echo "  		6 - 	City"
+  echo "		7 -	State"
+  echo "  		8 - 	Zipcode"
+  echo "  		x - 	Exit"
+  echo 
+  echo -n "		Enter option: "
+  read Ans
+    
+  if [ "$?" != "1" ]
+   then
+     case $Ans in
+      1) read FirstName;;
+      2) read LastName;;
+      3) read StreamID;;
+      4) read Address;;
+      5) read Phone;;
+      6) read City;;
+      7) read State;;
+      8) read Zipcode;;
+      x) exit 0;;
+      *) echo "		Invalid option"; echo "		Please Enter A Valid Option";;
+    esac
+  fi
+
+done
+}
+mistake
